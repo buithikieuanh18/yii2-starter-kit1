@@ -222,6 +222,11 @@ $logEntries[] = [
                             'options' => ['class' => 'nav-header'],
                         ],
                         [
+                            'label' => Yii::t('backend', 'Quản lý danh mục'),
+                            'icon' => FAS::icon('archive', ['class' => ['nav-icon']]),
+                            'url' => ['/phan-loai/index'],
+                        ],
+                        [
                             'label' => Yii::t('backend', 'Static pages'),
                             'url' => ['/content/page/index'],
                             'icon' => FAS::icon('thumbtack', ['class' => ['nav-icon']]),
