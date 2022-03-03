@@ -31,7 +31,7 @@ use yii\bootstrap4\ActiveForm;
                 
             </div>
             <div class="card-footer">
-                <?php echo Html::submitButton($model->isNewRecord ? 'Lưu lại' : 'Update', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
+                <?php echo Html::submitButton($model->isNewRecord ? 'Lưu lại' : 'Cập nhật', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
             </div>
         </div>
     <?php ActiveForm::end(); ?>

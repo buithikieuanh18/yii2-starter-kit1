@@ -8,7 +8,7 @@
 use yii\helpers\Html;
 
 $this->title = 'Thêm phân loại';
-$this->params['breadcrumbs'][] = ['label' => 'Quản lý phân loại', 'url' => ['index']];
+$this->params['breadcrumbs'][] = ['label' => 'Quản lý danh mục', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="phan-loai-create">
