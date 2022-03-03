@@ -29,6 +29,8 @@ class m220301_111630_quan_li_san_pham extends Migration
             'thuong_hieu_id' => $this->integer()->notNull(),
             'nguoi_tao_id' => $this->integer()->notNull(),
             'nguoi_sua_id' => $this->integer()->notNull(),
+            'so_luong' => $this->integer()->notNull(),
+            'ngay_hang_ve' => $this->dateTime(),
             
         ]);
         $this->createTable('{{%phan_loai}}', [

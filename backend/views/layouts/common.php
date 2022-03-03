@@ -218,13 +218,42 @@ $logEntries[] = [
                             'visible' => Yii::$app->user->can('administrator'),
                         ],
                         [
-                            'label' => Yii::t('backend', 'Content'),
+                            'label' => Yii::t('backend', 'Furniture'),
                             'options' => ['class' => 'nav-header'],
                         ],
                         [
                             'label' => Yii::t('backend', 'Quản lý danh mục'),
                             'icon' => FAS::icon('archive', ['class' => ['nav-icon']]),
                             'url' => ['/phan-loai/index'],
+                        ],
+                        [
+                            'label' => Yii::t('backend', 'Quản lý sản phẩm'),
+                            'icon' => FAS::icon('braille', ['class' => ['nav-icon']]),
+                            'url' => ['/san-pham/index'],
+                        ],
+                        // [
+                        //     'label' => Yii::t('backend', 'Các chức năng khác'),
+                        //     'icon' => FAS::icon('bone', ['class' => ['nav-icon']]),
+                        //     'url' => ['/khac/index'],
+                        // ],
+                        [
+                            'label' => Yii::t('backend', 'Sliders'),
+                            'icon' => FAS::icon('clone', ['class' => ['nav-icon']]),
+                            'url' => ['/slider/index'],
+                        ],
+                        [
+                            'label' => Yii::t('backend', 'Thương hiệu'),
+                            'icon' => FAS::icon('bone', ['class' => ['nav-icon']]),
+                            'url' => ['/thuong-hieu/index'],
+                        ],
+                        [
+                            'label' => Yii::t('backend', 'Từ khóa'),
+                            'icon' => FAS::icon('book', ['class' => ['nav-icon']]),
+                            'url' => ['/tu-khoa/index'],
+                        ],
+                        [
+                            'label' => Yii::t('backend', 'Content'),
+                            'options' => ['class' => 'nav-header'],
                         ],
                         [
                             'label' => Yii::t('backend', 'Static pages'),
