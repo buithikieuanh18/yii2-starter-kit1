@@ -6,7 +6,7 @@
  */
 
 $this->title = 'Update sản phẩm: ' . ' ' . $model->name;
-$this->params['breadcrumbs'][] = ['label' => 'San Phams', 'url' => ['index']];
+$this->params['breadcrumbs'][] = ['label' => 'Sản phẩm', 'url' => ['index']];
 $this->params['breadcrumbs'][] = ['label' => $model->name, 'url' => ['view', 'id' => $model->id]];
 $this->params['breadcrumbs'][] = 'Update';
 ?>

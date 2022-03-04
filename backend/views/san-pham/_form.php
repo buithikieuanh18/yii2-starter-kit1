@@ -17,6 +17,8 @@ use dosamigos\selectize\SelectizeTextInput;
 ?>
 
 <div class="san-pham-form">
+    <?=Html::errorSummary($model); ?>
+    <?=Yii::$app->session->getFlash('thongbao'); ?>
     <?php $form = ActiveForm::begin(
         [
             'options' => [
@@ -67,6 +69,8 @@ use dosamigos\selectize\SelectizeTextInput;
                 ]) ?>
                 
                 <?php echo $form->field($model, 'anh_dai_dien')->fileInput() ?>
+                <?php //= Html::img(Yii::$app->request->baseUrl.('/common/images/').$model->anh_dai_dien, ['width'=> '288px', 'height'=> '250px'])
+                ?>
                 <?php //echo $form->field($model, 'anh_dai_dien')->widget(
                 //Upload::class,
                 //[

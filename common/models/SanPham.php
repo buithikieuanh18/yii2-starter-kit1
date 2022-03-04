@@ -248,4 +248,26 @@ class SanPham extends \yii\db\ActiveRecord
 
         parent::afterSave($insert, $changedAttributes);
     }
+
+    public function beforeDelete()
+    {
+        // no-image.jpg
+        if ($this->anh_dai_dien != 'no-image.jpg') {
+            $path = '@common/images/'.$this->anh_dai_dien;
+            if(is_file($path))
+                unlink($path);
+        }
+
+        $anh_sliders = AnhSanPham::findAll(['san_pham_id' => $this->id]);
+        foreach($anh_sliders as $anh_slider) {
+            $anh_slider->delete();
+        }
+
+        TuKhoaSanPham::deleteAll(['san_pham_id' => $this->id]);
+        PhanLoaiSanPham::deleteAll(['san_pham_id' => $this->id]);
+
+        return parent::beforeDelete();
+    }
+
+
 }
