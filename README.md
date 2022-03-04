@@ -4,6 +4,7 @@
 ![image](https://user-images.githubusercontent.com/63144244/156577122-67fb2fa4-4a4a-4b21-b416-cd516d070c2e.png)
   * Quản lý danh mục sản phẩm
   ![image](https://user-images.githubusercontent.com/63144244/156774995-34db7f32-2f07-48e4-a786-b971a49c10e3.png)
+  ![image](https://user-images.githubusercontent.com/63144244/156775226-581ac323-fbf6-4ef2-8710-ba5346dc3108.png)
   ![image](https://user-images.githubusercontent.com/63144244/156578263-d3581590-aec5-44df-94a4-c62474b2542a.png)
   ![image](https://user-images.githubusercontent.com/63144244/156578333-c3d27a0e-eab0-4f2a-b5d2-ec181fb597b8.png)
   
