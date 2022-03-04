@@ -119,6 +119,24 @@ class SanPham extends \yii\db\ActiveRecord
     /**
      * @return \yii\db\ActiveQuery
     */
+    public function getPhanLoaiSanPhams()
+    {
+        return $this->hasMany(PhanLoaiSanPham::classname(), ['id' => 'phan_loai_id']);
+    }
+
+
+    /**
+     * @return \yii\db\ActiveQuery
+    */
+    public function getThuongHieu()
+    {
+        return $this->hasMany(ThuongHieu::classname(), ['id' => 'thuong_hieu_id']);
+    }
+
+
+    /**
+     * @return \yii\db\ActiveQuery
+    */
     public function getNguoiSua()
     {
         return $this->hasMany(User::classname(), ['nguoi_sua_id' => 'id']);
@@ -190,7 +208,7 @@ class SanPham extends \yii\db\ActiveRecord
 
         TuKhoaSanPham::deleteAll(['san_pham_id' => $this->id]);
         if($this->tu_khoa_san_phams != '') {
-            $tukhoa = explode(',', $this->tu_khoa_san_phams);
+            $tukhoa = explode(', ', $this->tu_khoa_san_phams);
             foreach ($tukhoa as $item) {
                 $old_tag = TuKhoa::findOne(['name' => trim($item)]);
                 if(!is_null($old_tag)) {

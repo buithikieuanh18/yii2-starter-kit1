@@ -33,27 +33,128 @@ $this->params['breadcrumbs'][] = $this->title;
                 'filterModel' => $searchModel,
                 'columns' => [
                     ['class' => 'yii\grid\SerialColumn'],
-
-                    'id',
+                    [
+                        'attribute' => 'anh_dai_dien',
+                        'label' => 'Hình ảnh',
+                        'value' => function($data) {
+                            /** @var $data \common\models\SanPham  */
+                            return Html::img('../../common/images/'.$data->anh_dai_dien, ['width' => '80px', 'height' => '80px']);
+                        },
+                        'format' => 'raw',
+                        'filter' => false,
+                    ],
+                    //'anh_dai_dien',
+                    //'id',
                     'name',
-                    'code',
-                    'mo_ta_ngan_gon',
-                    'mo_ta_chi_tiet:ntext',
-                    // 'ban_chay',
-                    // 'noi_bat',
-                    // 'moi_ve',
-                    // 'gia_ban',
+                    //'code',
+                    //'mo_ta_ngan_gon',
+                    //'mo_ta_chi_tiet:ntext',
+                    [
+                        'attribute' => 'ban_chay',
+                        'value' => function($data) {
+                            /** @var $data \common\models\SanPham  */
+                            if($data->ban_chay)
+                                return '<span class="text-success"><i class="fas fa-check"></i></span>';
+                            return '<span class="text-danger"></span>';
+                        },
+                        'format' => 'raw',
+                        'headerOptions' => ['class' => 'text-center'],
+                        'contentOptions' => ['class' => 'text-center'],
+                    ],
+                    [
+                        'attribute' => 'noi_bat',
+                        'value' => function($data) {
+                            /** @var \common\models\SanPham  $data  */
+                            if($data->noi_bat)
+                                return '<span class="text-success"><i class="fas fa-check"></i></span>';
+                            return '<span class="text-danger"></span>';
+                        },
+                        'format' => 'raw',
+                        'headerOptions' => ['class' => 'text-center'],
+                        'contentOptions' => ['class' => 'text-center'],
+                    ],
+                    [
+                        'attribute' => 'moi_ve',
+                        'value' => function($data) {
+                            /** @var \common\models\SanPham $data  */
+                            if($data->moi_ve)
+                                return '<span class="text-success"><i class="fas fa-check"></i></span>';
+                            return '<span class="text-danger"></span>';
+                        },
+                        'format' => 'raw',
+                        'headerOptions' => ['class' => 'text-center'],
+                        'contentOptions' => ['class' => 'text-center'],
+                    ],
+                    //'ban_chay',
+                    //'noi_bat',
+                    //'moi_ve',
+                    [
+                        'attribute' => 'gia_ban',
+                        'value' => function($data) {
+                            /** @var \common\models\SanPham  $data */
+                            
+                            return number_format($data->gia_ban, 0, '', '.');
+                        },
+                        'headerOptions' => ['class' => 'text-right'],
+                        'contentOptions' => ['class' => 'text-right'],
+                    ],
+                    //'gia_ban',
                     // 'gia_canh_tranh',
-                    // 'anh_dai_dien',
+                    [
+                        'attribute' => 'ngay_dang',
+                        'value' => function($data) {
+                            /** @var \common\models\SanPham $data  */
+                            return date("d/m/Y", strtotime($data->ngay_dang));
+                        },
+                        'headerOptions' => ['class' => 'text-center'],
+                        'contentOptions' => ['class' => 'text-center'],
+                    ],
                     // 'ngay_dang',
                     // 'ngay_sua',
                     // 'thuong_hieu_id',
+                    [
+                        'attribute' => 'thuong_hieu_id',
+                        'value' => function($data) {
+                            /** @var \common\models\SanPham $data  */
+                            $thuongHieu = \common\models\ThuongHieu::findOne($data->thuong_hieu_id);
+                            return $thuongHieu->name;
+                            //return $data->thuongHieu->name;
+                        },
+                        'headerOptions' => ['class' => 'text-center'],
+                        'contentOptions' => ['class' => 'text-center'],
+                    ],
                     // 'nguoi_tao_id',
                     // 'nguoi_sua_id',
-                    
-                    ['class' => \common\widgets\ActionColumn::class],
+                    // [
+                    //     'value' => function($data) {
+                    //         /** @var \common\models\SanPham $data  */
+                    //         $phanLoai = [];
+                    //         foreach($data->phanLoaiSanPhams as $phanLoaiSanPham) {
+                    //             $phanLoai[] = $phanLoaiSanPham->phanLoai->name;
+                    //         }
+                    //         return implode(', ', $phanLoai);
+                    //     },
+                    //     'label' => 'Tags',
+                    // ],
+
+                    [
+                        'class' => \common\widgets\ActionColumn::class,
+                        'template' => '{view}',
+                        'header' => 'Xem'
+                    ],
+                    [
+                        'class' => \common\widgets\ActionColumn::class,
+                        'template' => '{update}',
+                        'header' => 'Sửa'
+                    ],
+                    [
+                        'class' => \common\widgets\ActionColumn::class,
+                        'template' => '{delete}',
+                        'header' => 'Xóa'
+                    ],
                 ],
             ]); ?>
+            <i class="bi bi-bag-check-fill"></i>
     
         </div>
         <div class="card-footer">
