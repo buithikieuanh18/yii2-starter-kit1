@@ -2,6 +2,7 @@
 
 namespace common\models\search;
 
+use common\models\API_Furniture;
 use Yii;
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
@@ -21,6 +22,7 @@ class SanPham extends SanPhamModel
             [['id', 'ban_chay', 'noi_bat', 'moi_ve', 'thuong_hieu_id', 'nguoi_tao_id', 'nguoi_sua_id','so_luong'], 'integer'],
             [['name', 'code', 'mo_ta_ngan_gon', 'mo_ta_chi_tiet', 'anh_dai_dien', 'ngay_dang', 'ngay_sua', 'ngay_hang_ve'], 'safe'],
             [['gia_ban', 'gia_canh_tranh'], 'number'],
+            [['giaban_tu', 'ngay_dang_tu'], 'safe'],
         ];
     }
 
@@ -51,15 +53,32 @@ class SanPham extends SanPhamModel
         if (!($this->load($params) && $this->validate())) {
             return $dataProvider;
         }
+        // Select *  from sanpham where gia_ban >= {$this->giaban_tu}
+        if($this->giaban_tu != '') {
+            $query->andFilterWhere(['>=', 'gia_ban', $this->giaban_tu]);
+        }
+        // and gia_ban <= {$this->gia_ban}
+        if($this->gia_ban != '') {
+            $query->andFilterWhere(['<=', 'gia_ban', $this->gia_ban]);
+        }
+
+        // d | d/m | d/m/y
+        if($this->ngay_dang_tu != '') {
+            $query->andFilterWhere(['>=', 'date(ngay_dang)', API_Furniture::convertDMYtoYMD($this->ngay_dang_tu)]);
+        }
+        // and ngay_dang <= {$this->ngay_dang}
+        if($this->ngay_dang != '') {
+            $query->andFilterWhere(['<=', 'date(ngay_dang)', API_Furniture::convertDMYtoYMD($this->ngay_dang)]);
+        }
 
         $query->andFilterWhere([
             'id' => $this->id,
             'ban_chay' => $this->ban_chay,
             'noi_bat' => $this->noi_bat,
             'moi_ve' => $this->moi_ve,
-            'gia_ban' => $this->gia_ban,
+            //'gia_ban' => $this->gia_ban,
             'gia_canh_tranh' => $this->gia_canh_tranh,
-            'ngay_dang' => $this->ngay_dang,
+            //'ngay_dang' => $this->ngay_dang,
             'ngay_sua' => $this->ngay_sua,
             'thuong_hieu_id' => $this->thuong_hieu_id,
             'nguoi_tao_id' => $this->nguoi_tao_id,

@@ -60,6 +60,10 @@ $this->params['breadcrumbs'][] = $this->title;
                         'format' => 'raw',
                         'headerOptions' => ['class' => 'text-center'],
                         'contentOptions' => ['class' => 'text-center'],
+                        'filter' => Html::activeDropDownList($searchModel, 'ban_chay', [
+                            0 => 'Không bán chạy',
+                            1 => 'Bán chạy'
+                        ], ['prompt' => 'Tất cả', 'class' => 'form-control'])
                     ],
                     [
                         'attribute' => 'noi_bat',
@@ -72,6 +76,10 @@ $this->params['breadcrumbs'][] = $this->title;
                         'format' => 'raw',
                         'headerOptions' => ['class' => 'text-center'],
                         'contentOptions' => ['class' => 'text-center'],
+                        'filter' => Html::activeDropDownList($searchModel, 'noi_bat', [
+                            0 => 'Không nổi bật',
+                            1 => 'Nổi bật'
+                        ], ['prompt' => 'Tất cả', 'class' => 'form-control'])
                     ],
                     [
                         'attribute' => 'moi_ve',
@@ -84,6 +92,10 @@ $this->params['breadcrumbs'][] = $this->title;
                         'format' => 'raw',
                         'headerOptions' => ['class' => 'text-center'],
                         'contentOptions' => ['class' => 'text-center'],
+                        'filter' => Html::activeDropDownList($searchModel, 'moi_ve', [
+                            0 => 'Hàng cũ',
+                            1 => 'Mới về'
+                        ], ['prompt' => 'Tất cả', 'class' => 'form-control'])
                     ],
                     //'ban_chay',
                     //'noi_bat',
@@ -97,6 +109,8 @@ $this->params['breadcrumbs'][] = $this->title;
                         },
                         'headerOptions' => ['class' => 'text-right'],
                         'contentOptions' => ['class' => 'text-right'],
+                        'filter' => Html::activeTextInput($searchModel, 'giaban_tu', ['class' => 'form-control', 'type' => 'number']).
+                        Html::activeTextInput($searchModel, 'gia_ban', ['class' => 'form-control', 'type' => 'number']),
                     ],
                     //'gia_ban',
                     // 'gia_canh_tranh',
@@ -108,6 +122,9 @@ $this->params['breadcrumbs'][] = $this->title;
                         },
                         'headerOptions' => ['class' => 'text-center'],
                         'contentOptions' => ['class' => 'text-center'],
+                        'filter' => Html::activeTextInput($searchModel, 'ngay_dang_tu', ['class' => 'form-control']).
+                        Html::activeTextInput($searchModel, 'ngay_dang', ['class' => 'form-control'])
+                    
                     ],
                     // 'ngay_dang',
                     // 'ngay_sua',
@@ -122,6 +139,11 @@ $this->params['breadcrumbs'][] = $this->title;
                         },
                         'headerOptions' => ['class' => 'text-center'],
                         'contentOptions' => ['class' => 'text-center'],
+                        'filter' => Html::activeDropDownList($searchModel, 'thuong_hieu_id', 
+                        \yii\helpers\ArrayHelper::map(
+                            \common\models\ThuongHieu::find()->all(), 'id', 'name'
+                        ),
+                        ['prompt' => 'Tất cả', 'class' => 'form-control'])
                     ],
                     // 'nguoi_tao_id',
                     // 'nguoi_sua_id',

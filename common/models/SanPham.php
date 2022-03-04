@@ -43,6 +43,8 @@ class SanPham extends \yii\db\ActiveRecord
     public $anh_san_phams;
     public $phan_loai_san_phams;
     public $tu_khoa_san_phams;
+    public $giaban_tu;
+    public $ngay_dang_tu;
     /**
      * {@inheritdoc}
      */
