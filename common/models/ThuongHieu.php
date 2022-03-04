@@ -15,6 +15,8 @@ use Yii;
  * @property string $name
  * @property string|null $code
  * @property string $logo
+ * 
+ * @property SanPham[] $sanPhams
  */
 class ThuongHieu extends \yii\db\ActiveRecord
 {
@@ -50,6 +52,14 @@ class ThuongHieu extends \yii\db\ActiveRecord
             'code' => 'Code',
             'logo' => 'Logo',
         ];
+    }
+
+    /**
+     * @return \yii\db\ActiveQuery
+    */
+    public function getSanPhams()
+    {
+        return $this->hasMany(SanPham::classname(), ['thuong_hieu_id' => 'id']);
     }
 
     public function beforeSave($insert)
