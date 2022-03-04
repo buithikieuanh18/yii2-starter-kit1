@@ -58,8 +58,13 @@ class API_Furniture {
             return null;
         } else {
             $arr = explode('/', $date);
-            $arr = array_reverse($arr);
-            return implode('-', $arr);
+
+            if(count($arr) == 1) return date("Y-m").'-'.$arr[0];
+            else if(count($arr) == 2) return date("Y")."-{$arr[1]}-{$arr[0]}";
+            else {
+                $arr = array_reverse($arr);
+                return implode('-', $arr);
+            }
         }
     }
 }
