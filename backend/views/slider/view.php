@@ -32,6 +32,7 @@ $this->params['breadcrumbs'][] = $this->title;
                     'tieu_de',
                     'mo_ta:ntext',
                     'link',
+                    //'hinh_anhs',
                     
                 ],
             ]) ?>

@@ -89,4 +89,13 @@ class Slider extends \yii\db\ActiveRecord
         }
         parent::afterSave($insert, $changedAttributes);
     }
+
+    public function beforeDelete()
+    {
+        $anh_sliders = AnhSlider::findAll(['slider_id' => $this->id]);
+        foreach($anh_sliders as $anh_slider) {
+            $anh_slider->delete();
+        }
+        return parent::beforeDelete();
+;    }
 }
