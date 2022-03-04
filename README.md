@@ -3,8 +3,7 @@
  # Trang admin
 ![image](https://user-images.githubusercontent.com/63144244/156577122-67fb2fa4-4a4a-4b21-b416-cd516d070c2e.png)
   * Quản lý danh mục sản phẩm
-  ![image](https://user-images.githubusercontent.com/63144244/156577625-2d46f61f-dfcd-46ac-a190-eaff1ae140e2.png)
-  ![image](https://user-images.githubusercontent.com/63144244/156578432-45e2a995-2c7e-4954-ace1-b17530197ae5.png)
+  ![image](https://user-images.githubusercontent.com/63144244/156774817-0ae1fe7c-dc60-4576-9801-c5b9ed36f20a.png)
   ![image](https://user-images.githubusercontent.com/63144244/156578263-d3581590-aec5-44df-94a4-c62474b2542a.png)
   ![image](https://user-images.githubusercontent.com/63144244/156578333-c3d27a0e-eab0-4f2a-b5d2-ec181fb597b8.png)
   
