@@ -44,4 +44,20 @@ class AnhSlider extends \yii\db\ActiveRecord
             'slider_id' => 'Slider ID',
         ];
     }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getSlider() {
+        return $this->hasOne(Slider::className(), ['id' => 'slider_id']);
+    }
+
+    public function afterDelete()
+    {
+        $path = '@common/images/'.$this->file;
+        if(is_file($path)) {
+            unlink($path);
+        }
+        parent::afterDelete();
+    }
 }
