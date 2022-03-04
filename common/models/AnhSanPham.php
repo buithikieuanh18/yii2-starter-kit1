@@ -44,4 +44,21 @@ class AnhSanPham extends \yii\db\ActiveRecord
             'san_pham_id' => 'San Pham ID',
         ];
     }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getSanPham() {
+        return $this->hasOne(SanPham::className(), ['id' => 'san_pham_id']);
+    }
+
+
+    public function afterDelete()
+    {
+        $path = '@common/images/'.$this->file;
+        if(is_file($path)) {
+            unlink($path);
+        }
+        parent::afterDelete();
+    }
 }
