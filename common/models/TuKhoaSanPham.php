@@ -10,6 +10,9 @@ use Yii;
  * @property int $id
  * @property int $tu_khoa_id
  * @property int $san_pham_id
+ * 
+ * @property SanPham $sanPham
+ * @property TuKhoa $tuKhoa
  */
 class TuKhoaSanPham extends \yii\db\ActiveRecord
 {
